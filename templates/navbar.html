@@ -1,26 +1,26 @@
-<nav class="navbar navbar-default" role="navigation" ng-controller="NavbarController as vm">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#we-are-borg-navbar">
-        <span class="sr-only">Toggle Navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="/">Not Google Plus</a>
-    </div> <!-- ./navbar-header -->
-
-    <div class="collapse navbar-collapse" id="we-are-borg-navbar">
-      <ul class="nav navbar-nav pull-right">
-        {% if user.is_authenticated %}
-          <li><a href="/+{{ user.username }}">+{{ user.username }}</a></li>
-          <li><a href="/+{{ user.username }}/settings">Settings</a></li>
-          <li><a href="javascript:void(0)" ng-click="vm.logout()">Logout</a></li>
-        {% else %}
-          <li><a href="/login">Login</a></li>
-          <li><a href="/register">Register</a></li>
-        {% endif %}
-      </ul>
-    </div> <!-- /.collapse.navbar-collapse -->
-  </div> <!-- /.container-fluid -->
+    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <!--
+		need to setup search 
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+            <button type="submit" class="btn btn-default">Find</button>
+          </div>
+        </form> -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		<a class="navbar-brand" href="#">Kerckhoff's dead, baby. Kerckhoff's dead</a>      
+        <ul class="nav navbar-nav navbar-right">
+          {% if user.is_authenticated %}
+            <li><a href="/+{{ user.username }}">+{{ user.username }}</a></li>
+            <li><a href="/+{{ user.username }}/settings">Settings</a></li>
+            <li><a href="javascript:void(0)">Logout</a></li>
+          {% else %}
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+          {% endif %}
+        </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>
