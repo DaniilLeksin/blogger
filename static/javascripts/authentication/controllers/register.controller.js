@@ -63,6 +63,9 @@
 	  */
 	  function registerErrorFn(data, status, headers, config) {
 		console.error('Epic failure!');
+        console.error(data);
+		console.error(status);
+		console.error(headers);
 	  }
 	}
   }

@@ -24,6 +24,7 @@
       getAuthenticatedAccount: getAuthenticatedAccount,
       isAuthenticated: isAuthenticated,
       login: login,
+      logout: logout,
       register: register,
       setAuthenticatedAccount: setAuthenticatedAccount,
       unauthenticate: unauthenticate
@@ -125,6 +126,35 @@
 	 */
 	function unauthenticate() {
 	  delete $cookies.authenticatedAccount;
+	}
+
+	/**
+	 * @name logout
+	 * @desc Try to log the user out
+	 * @returns {Promise}
+	 * @memberOf blog.authentication.services.Authentication
+	 */
+	function logout() {
+	  return $http.post('/api/v1/auth/logout/')
+		.then(logoutSuccessFn, logoutErrorFn);
+
+	  /**
+	   * @name logoutSuccessFn
+	   * @desc Unauthenticate and redirect to index with page reload
+	   */
+	  function logoutSuccessFn(data, status, headers, config) {
+		Authentication.unauthenticate();
+
+		window.location = '/';
+	  }
+
+	  /**
+	   * @name logoutErrorFn
+	   * @desc Log "Epic failure!" to the console
+	   */
+	  function logoutErrorFn(data, status, headers, config) {
+		console.error('Epic failure!');
+	  }
 	}
   }
 })();

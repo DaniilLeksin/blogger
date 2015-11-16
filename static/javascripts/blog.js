@@ -5,7 +5,10 @@
     .module('blog', [
 	  'blog.config',
       'blog.routes',
-      'blog.authentication'
+      'blog.authentication',
+      'blog.layout',
+      'blog.posts',
+      'blog.utils',
     ]);
 
   angular
