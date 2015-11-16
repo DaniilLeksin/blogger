@@ -8,7 +8,7 @@
       'blog.authentication',
       'blog.layout',
       'blog.posts',
-      'blog.utils',
+      'blog.utils', 
     ]);
 
   angular
