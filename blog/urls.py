@@ -23,15 +23,20 @@ urlpatterns = patterns('',
     # url(r'^$', 'blog.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
 
+    
+    # url(r'^api/v1/', include(router.urls)),
+    # url(r'^api/v1/', include(accounts_router.urls)),
+    # url(r'^api/v1/auth/login/$', LoginView.as_view(), name='login'),
+    # url(r'^api/v1/auth/logout/$', LogoutView.as_view(), name='logout'),
+
+    # url(r'^.*$', IndexView.as_view(), name='index'),
+
     url(r'^admin/', include(admin.site.urls)),
     url(r'^api/v1/', include(router.urls)),
+    url(r'^api/v1/', include(accounts_router.urls)),
     url(r'^api/v1/auth/login/$', LoginView.as_view(), name='login'),
     url(r'^api/v1/auth/logout/$', LogoutView.as_view(), name='logout'),
-	url(r'^api/v1/', include(router.urls)),
-	url(r'^api/v1/', include(accounts_router.urls)),
+	
     url('^.*$', IndexView.as_view(), name='index'),
 
 )
-
-
-
