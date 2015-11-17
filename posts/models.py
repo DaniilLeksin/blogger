@@ -5,8 +5,8 @@ from authentication.models import Account
 
 
 class Post(models.Model):
-    author = models.ForeignKey(Account)
-    content = models.TextField()
+    author = models.ForeignKey(Account, null=True)
+    content = models.TextField(blank=True)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

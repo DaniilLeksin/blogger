@@ -33,7 +33,9 @@
 	  }
 	}
 
-    /**
+    
+
+	/**
 	* @name register
 	* @desc Try to register a new user
 	* @param {string} email The email entered by the user
@@ -44,9 +46,9 @@
 	*/
 	function register(email, password, username) {
 	  return $http.post('/api/v1/accounts/', {
-		username: username,
-		password: password,
-		email: email
+	    username: username,
+	    password: password,
+	    email: email
 	  }).then(registerSuccessFn, registerErrorFn);
 
 	  /**
@@ -54,7 +56,7 @@
 	  * @desc Log the new user in
 	  */
 	  function registerSuccessFn(data, status, headers, config) {
-		Authentication.login(email, password);
+	    Authentication.login(email, password);
 	  }
 
 	  /**
@@ -62,12 +64,8 @@
 	  * @desc Log "Epic failure!" to the console
 	  */
 	  function registerErrorFn(data, status, headers, config) {
-		console.error('Epic failure!');
-        console.error(data);
-		console.error(status);
-		console.error(headers);
+	    console.error('Epic failure!');
 	  }
 	}
   }
 })();
-
