@@ -31,7 +31,11 @@
     }).when('/+:username/settings', {
       controller: 'AccountSettingsController',
       controllerAs: 'vm',
-      templateUrl: '/static/templates/accounts/settings.html'
+      templateUrl: '/static/templates/profiles/settings.html'
+    }).when('/+:username', {
+      controller: 'ProfileController',
+      controllerAs: 'vm',
+      templateUrl: '/static/templates/profiles/profile.html'
     }).otherwise('/');
   }
 })();
