@@ -17,4 +17,3 @@
   angular
     .module('blog.posts.services', []);
 })();
-
