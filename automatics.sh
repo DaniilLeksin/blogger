@@ -10,28 +10,28 @@ current_branch="master"
 # If there's a remote (public) branch, we do not want to be rewriting histories
 tracking=$(git branch -vv | egrep "^\*" | awk '{ print $4 '})
 # part 1 merging
-# echo "tracking=$tracking"
-# if [[ ! "$tracking" =~ "$remote" ]]; then
-#   echo "* Local-only branch, rebasing $branch onto $current_branch first..."
-#   git checkout $branch
-#   git rebase $current_branch || return 1
-# else
-#   echo "* This branch exists remotely, not rebasing"
-# fi
+echo "tracking=$tracking"
+if [[ ! "$tracking" =~ "$remote" ]]; then
+  echo "* Local-only branch, rebasing $branch onto $current_branch first..."
+  git checkout $branch
+  git rebase $current_branch || return 1
+else
+  echo "* This branch exists remotely, not rebasing"
+fi
 
-# echo "* Merge $branch into $current_branch"
-# git checkout $current_branch
-# git merge $branch --no-edit || return 1
+echo "* Merge $branch into $current_branch"
+git checkout $current_branch
+git merge $branch --no-edit || return 1
 
-# echo "* erging Done"
+echo "* merging Done"
 
 echo "* Done"
 # part 2 gulp
 echo "* gulp starting"
 gulp
-echo "* merging"
+echo "* done"
 # part 3 push
-
+echo "* pushing"
 # Colors
 color_error="$(tput sgr 0 1)$(tput setaf 1)"
 color_reset="$(tput sgr0)"
